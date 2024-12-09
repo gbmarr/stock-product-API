@@ -105,5 +105,5 @@ _En el caso de las solicitudes POST o PUT, previamente se deberá realizar el lo
 
 _Credenciales para prueba:_
     
-    - email: admin@admin.com
-    - pass: webadmin
+    - email: webadmin@admin.com
+    - pass: admin

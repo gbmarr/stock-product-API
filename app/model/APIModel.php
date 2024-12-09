@@ -68,11 +68,11 @@ class APIModel {
 
             $stmt = $this->database->prepare(
                 "INSERT INTO `users` (`name`, `surname`, `email`, `pass`, `token`, `admin`) VALUES
-                ('Admin', 'User', 'admin@admin.com', :adminpass, :admintoken, TRUE),
+                ('Admin', 'User', 'webadmin@admin.com', :adminpass, :admintoken, TRUE),
                 ('UserComun', 'Apellido', 'user@comun.com', :userpass, :usertoken, FALSE);"
             );
             $stmt->execute([
-                ':adminpass' => '$2y$10$xHn/k/qTE8tGr1iSSe3X0OOUbkSnYGTLp7BAuIKFUAb9teWs/Ybxi',
+                ':adminpass' => '$2y$10$11WnltIgF5IzvPCUCH6N7uuxWJyG14M4wRgS9ji6llO04Ln20aLGK',
                 ':userpass' => '$2y$10$hP1MFvzm7SpV6CbZX7GQDekSTWD0GyVtR0eN2icxbLHNM.QfQ0U4a',
                 ':admintoken' => '646fc0d751c58050fb1d81ee8f455420',
                 ':usertoken' => '80da7e7ce496db405ee6b67d87bf648d'
