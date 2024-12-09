@@ -10,8 +10,11 @@ class CategoryAPIModel extends APIModel {
     /* Metodo que devuelve un array de objetos con los datos de
     las categorias que se encuentran en la tabla categories de la base de datos */
     function getAllCategories($field = null, $value = null, $attribute = null, $order = null, $pages = null, $lim = null){
-        $offset = (int)(($pages - 1) * $lim);
-        $lim = (int)($lim);
+        if(is_numeric($value)){
+            $value = (float)($value);
+        }else{
+            $value = "'$value'";
+        }
 
         /* array de atributos validos sobre los cuales filtrar y ordenar los registros de la consulta */
         $validAttributes = array('idcat', 'catname', 'catimage');
@@ -31,8 +34,8 @@ class CategoryAPIModel extends APIModel {
             $query .= " ORDER BY $attribute $order";
         }
         
-        if($lim =! 0 && $offset != 0){
-            $query .= " LIMIT $lim OFFSET $offset";
+        if($lim != 0 && $pages != 0){
+            $query .= " LIMIT $lim OFFSET $pages";
         }
 
         $categories = $this->executeQuery($query);

@@ -14,15 +14,17 @@ class ProductAPIModel extends APIModel {
     /* Metodo que devuelve un array de objetos con los datos de
     los productos que se encuentran en la tabla products de la base de datos */
     function getAllProducts($field = null, $value = null, $attribute = null, $order = null, $pages = null, $lim = null){
-        $offset = (int)(($pages - 1) * $lim);
-        $lim = (int)($lim);
-        $value = (float)($value);
+        if(is_numeric($value)){
+            $value = (float)($value);
+        }else{
+            $value = "'$value'";
+        }
         
         /* array de atributos validos sobre los cuales filtrar y ordenar los registros de la consulta */
         $validAttributes = array('idproduct', 'prodname', 'description', 'idcategory', 'price', 'stock', 'imgproduct');
 
         /* consulta SQL base para la obtencion de todos los datos de productos */
-        $query = "SELECT `idproduct`, P.`prodname`, `description`, P.`idcategory`, C.`idcat`, C.`catname` catdescription, `price`, `stock`, `imgproduct` FROM `products` P, `categories` C WHERE `idcategory` = `idcat`";
+        $query = "SELECT `idproduct`, `prodname`, `description`, P.`idcategory`, C.`idcat`, C.`catname` catdescription, `price`, `stock`, `imgproduct` FROM `products` P, `categories` C WHERE `idcategory` = `idcat`";
 
         /* si el valor de field se encuenta dentro del array, agrega a la query
         la condicion de que sean todos los productos que tengan el valor de value en ese campo */
@@ -36,8 +38,8 @@ class ProductAPIModel extends APIModel {
             $query .= " ORDER BY $attribute $order";
         }
         
-        if($lim =! 0 && $offset != 0){
-            $query .= " LIMIT $lim OFFSET $offset";
+        if($lim != 0 && $pages != 0){
+            $query .= " LIMIT $lim OFFSET $pages";
         }
         
         $products = $this->executeQuery($query);
