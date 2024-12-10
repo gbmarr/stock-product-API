@@ -60,10 +60,14 @@ class APIModel {
 
             $this->database->exec(
                 "INSERT INTO `products` (`prodname`, `description`, `idcategory`, `stock`, `price`, `imgproduct`) VALUES
-                ('Televisor', 'Televisor LED de 42 pulgadas', 2, TRUE, 200, 'images/img-tv.jpeg'),
-                ('Camiseta', 'Camiseta de algodón 100%', 3, TRUE, 30.00, 'images/camiseta.jpeg'),
-                ('Sofá', 'Sofá de 3 plazas color gris', 4, TRUE, 500.10, 'images/sofa.jpeg'),
-                ('Auriculares', 'Auriculares con cancelación de ruido', 2, TRUE, 1500, 'images/auriculares.jpeg');
+                ('Televisor', 'SmartTV de 42 pulgadas con pantalla curva...', 2, TRUE, 200, 'images/television.jpeg'),
+                ('Camiseta', 'Camiseta de la Selección Argentina, con numeración y nombre estampado.', 3, TRUE, 30.00, 'images/camiseta.jpeg'),
+                ('Sofá', 'Sofá de 3 plazas, compuesto de espuma densa y tela simil cuero.', 4, TRUE, 500.10, 'images/sofa.jpeg'),
+                ('Auriculares', 'Auriculares con cancelación de ruido y conexión inalámbrica.', 2, TRUE, 1500, 'images/auriculares.jpeg'),
+                ('Campera', 'Campera de neopreno. Talle L y cierre con refuerzo.', 1, TRUE, 300, 'images/campera.jpeg'),
+                ('Zapatillas', 'Zapatillas AdiPure. Talle 42. Color negro con detalles en blanco.', 3, TRUE, 21500, 'images/zapatillas.jpeg'),
+                ('Remera', 'Remera oversize. Talle XL, color crudo.', 1, TRUE, 331500, 'images/remera.jpeg'),
+                ('Notebook', 'Ordenador portatil con procesador i7 y memoria RAM de 32GB.', 2, TRUE, 9331500, 'images/notebook.jpeg');
             ");
 
             $stmt = $this->database->prepare(
