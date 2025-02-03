@@ -54,20 +54,24 @@ class APIModel {
             $this->database->exec(
                 "INSERT INTO `categories` (`catname`, `catimage`) VALUES
                 ('Sin categoría asignada', 'images/imagenPorDefault.jpg'),
-                ('Electrónica', 'images/imagenPorDefault.jpg'),
-                ('Ropa', 'images/imagenPorDefault.jpg'),
-                ('Hogar', 'images/imagenPorDefault.jpg');");
+                ('Electrónica', 'images/electronica.jpg'),
+                ('Hogar', 'images/hogar.jpg'),
+                ('Ropa', 'images/ropa.jpg'),
+                ('Deportes', 'images/deportes.jpg'),
+                ('Juguetes', 'images/juguetes.jpg');");
 
             $this->database->exec(
                 "INSERT INTO `products` (`prodname`, `description`, `idcategory`, `stock`, `price`, `imgproduct`) VALUES
-                ('Televisor', 'SmartTV de 42 pulgadas con pantalla curva...', 2, TRUE, 200, 'images/television.jpeg'),
-                ('Camiseta', 'Camiseta de la Selección Argentina, con numeración y nombre estampado.', 3, TRUE, 30.00, 'images/camiseta.jpeg'),
-                ('Sofá', 'Sofá de 3 plazas, compuesto de espuma densa y tela simil cuero.', 4, TRUE, 500.10, 'images/sofa.jpeg'),
-                ('Auriculares', 'Auriculares con cancelación de ruido y conexión inalámbrica.', 2, TRUE, 1500, 'images/auriculares.jpeg'),
-                ('Campera', 'Campera de neopreno. Talle L y cierre con refuerzo.', 1, TRUE, 300, 'images/campera.jpeg'),
-                ('Zapatillas', 'Zapatillas AdiPure. Talle 42. Color negro con detalles en blanco.', 3, TRUE, 21500, 'images/zapatillas.jpeg'),
-                ('Remera', 'Remera oversize. Talle XL, color crudo.', 1, TRUE, 331500, 'images/remera.jpeg'),
-                ('Notebook', 'Ordenador portatil con procesador i7 y memoria RAM de 32GB.', 2, TRUE, 9331500, 'images/notebook.jpeg');
+                ('Televisor', 'SmartTV de 42 pulgadas con pantalla curva...', 1, TRUE, 200, 'images/television.jpeg'),
+                ('Laptop', 'Laptop con procesador Intel i7 y 16GB RAM', 1, TRUE, 800, 'images/notebook.jpeg'),
+                ('Licuadora', 'Licuadora de 600W con 3 velocidades', 2, TRUE, 50, 'images/licuadora.jpg'),
+                ('Sofá', 'Sofá de tres plazas con tapizado de cuero sintético', 2, TRUE, 350, 'images/sofa.jpeg'),
+                ('Camiseta deportiva', 'Camiseta de poliéster transpirable para entrenamientos', 3, TRUE, 25, 'images/camiseta.jpeg'),
+                ('Zapatillas running', 'Zapatillas con tecnología de amortiguación avanzada', 4, TRUE, 100, 'images/zapatillas.jpeg'),
+                ('Pelota de fútbol', 'Balón oficial tamaño 5 de cuero sintético', 4, TRUE, 30, 'images/pelota.jpg'),
+                ('Muñeca interactiva', 'Muñeca que habla y canta, ideal para niños de 3 a 6 años', 5, TRUE, 40, 'images/muneca.jpg'),
+                ('Auto de juguete', 'Auto a control remoto con luces LED', 5, TRUE, 60, 'images/auto_juguete.jpg'),
+                ('Abrigo de invierno', 'Chaqueta térmica impermeable con forro polar', 3, TRUE, 90, 'images/abrigo.jpg');
             ");
 
             $stmt = $this->database->prepare(
